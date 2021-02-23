@@ -3,7 +3,7 @@
 
 You have a problem with deploying your Python program so other people can use it. "I know," you think, "I'll use a virtual environment." Now you have two problems.<sup>**†**</sup>
 
-I've put this stuff here because I use it for pretty much every Python program I write. Perhaps you'll find it useful too.
+I've put this stuff here because I use it for pretty much every Python program I write. Or rather, I clone this repository and rename it for each new project. Perhaps you'll find it useful too.
 
 ## The problem
 I love Python the programming language, but I hate the "scaffolding" around it. It is bizarre that you can learn to write simple programs in a few hours, but it takes weeks or even months of experience to deploy your scripts in a manner that allows others to use them. Programs fail to run because you've written yours in Python 3.x and the default interpreter is Python 2.x. You forget that you installed some packages, so others get error messages that they can't import function foo from module bar, or other error messages.
