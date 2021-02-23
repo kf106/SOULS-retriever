@@ -32,4 +32,4 @@ What you do beforehand:
 This setup doesn't mess up people's `.bashrc` file, and ensures they are using exactly the same Python interpreter version and package versions you are.
  
 ## Footnotes
-<sup>**†**</sup>I'm paraphrasing Jamie Zawinski there.
+<sup>**†**</sup>I'm paraphrasing <b>jwz</b> there.
