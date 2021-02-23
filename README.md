@@ -14,10 +14,18 @@ This repository contains the setup that I use these days. There's an `install.sh
 
 The program is then run using `run.sh`. In this example it spins up a simple Flask webserver.
 
-Let's go through that again:
+Let's go through that again.
+
+The instructions you provide:
 1. Clone the repo,
-2. Run `install.sh` once,
+2. Run `sudo install.sh` once,
 3. Use `run.sh` from then on to run the program.
+
+What you do beforehand:
+1. Edit `install.sh` to contain the Linux packages your program needs,
+2. Edit  `pyenv.sh` to contain the Python packages your program needs that can't be installed from `requirements.txt`
+3. Make sure `requirements.txt` contains the rest of the Pip packages (instructions in the comments of `pyenv.sh`)
+4. Edit the last line of `run.sh` to execute the command you would use at the command line to run your program. 
 
 This setup doesn't mess up people's `.bashrc` file, and ensures they are using exactly the same Python interpreter version and package versions you are.
  
