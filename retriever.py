@@ -11,7 +11,7 @@ chains = [
     {
         'id': '0x61', 
         'provider': 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-        'contract': '0x00a3e321257d087e5cd5742a75b08c1af99a17da'
+        'contract': '0x00a3E321257d087e5cD5742a75B08C1aF99a17da'
     },
 ]
 
