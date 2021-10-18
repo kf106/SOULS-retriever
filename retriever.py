@@ -23,16 +23,31 @@ def writeTokenFile(id, provider, contractAddress):
     ABI = soulsJSON.get('abi')
     contract = w3.eth.contract(Web3.toChecksumAddress(contractAddress), abi=ABI)
     totalSupply = contract.functions.totalSupply().call()
-    tokens = []
-    for i in range(totalSupply):
-        print("Handling: " + str(i + 1))
-        level = contract.functions.tokenLevel(i + 1).call()
-        img = contract.functions.tokenB64(i + 1).call()
-        uri = contract.functions.tokenURI(i + 1).call()
+
+    f = open('tokens/' + id + '.json', 'r')
+    tokens = json.load(f)
+    f.close()
+    
+    for i in range(len(tokens) + 1, totalSupply + 1):
+        print("Handling: " + str(i))
+        img = contract.functions.tokenB64(i).call()
+        uri = contract.functions.tokenURI(i).call()
         with urllib.request.urlopen(uri) as url:
             tokenMeta = json.loads(url.read().decode())
-        tokens.append({"name": tokenMeta.get("name"), "level": level, "img": img})
-    result = sorted(tokens, key=lambda d: d['level'], reverse=True) 
+        tokens.append({"id": i, "name": tokenMeta.get("name"), "level": 0, "img": img})
+    
+    newTokens = []
+    for x in tokens:
+      print("Updating: " + str(x.get("id")))
+      level = contract.functions.tokenLevel(x.get("id")).call()
+      newTokens.append({
+          "id": x.get("id"),
+          "name": x.get("name"),
+          "level": level,
+          "img": x.get("img")
+      })
+    
+    result = sorted(newTokens, key=lambda d: d['level'], reverse=True) 
     with open('tokens/' + id + '.json', 'w') as f:
         json.dump(result, f)
 
