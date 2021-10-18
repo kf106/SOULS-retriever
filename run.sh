@@ -13,7 +13,7 @@ set -x
 # This script uses python3, so we need to
 # activate the virtual python3 environment
 export PATH="/home/$USER/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 # Here we run Flask, and it works!

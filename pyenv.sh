@@ -8,15 +8,15 @@
 curl https://pyenv.run | bash
 
 export PATH="/home/$USER/.pyenv/bin:$PATH"
-eval "$(/home/$USER/.pyenv/bin/pyenv init -)"
+eval "$(/home/$USER/.pyenv/bin/pyenv init --path)"
 eval "$(/home/$USER/.pyenv/bin/pyenv virtualenv-init -)"
 
-# Get python 3.8.2 and create the local environment
-pyenv install 3.8.2
-pyenv virtualenv 3.8.2 myenv
+# Get python 3.9.7 and create the local environment
+pyenv install 3.9.7
+pyenv virtualenv 3.9.7 myenv
 pyenv local myenv
 
-# Which is why this will show version 3.8.2
+# Which is why this will show version 3.9.7
 python --version
 
 # We need the wheel package first
