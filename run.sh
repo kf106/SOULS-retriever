@@ -17,4 +17,4 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 # Here we run Flask, and it works!
-FLASK_APP=flask-app.py flask run --port 5050
+python retriever.py
