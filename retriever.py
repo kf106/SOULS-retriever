@@ -1,17 +1,20 @@
 from web3 import Web3
 import json
 import urllib.request
+from shutil import copy2
 
 chains = [
     {
         'id': '0x38', 
         'provider': 'https://bsc-dataseed.binance.org/',
         'contract': '0x40Ad58a55654A419692F63E4ae6a5918F72989e2'
+        'copydest': '/home/ropsten/souls/prod-SOULS-website/public/tokens/'
     },
     {
         'id': '0x61', 
         'provider': 'https://data-seed-prebsc-1-s1.binance.org:8545/',
         'contract': '0x00a3E321257d087e5cD5742a75B08C1aF99a17da'
+        'copydest': '/home/ropsten/souls/testnet-SOULS-website/public/tokens/'
     },
 ]
 
@@ -53,3 +56,5 @@ def writeTokenFile(id, provider, contractAddress):
 
 for x in chains:
     writeTokenFile(x.get('id'), x.get('provider'), x.get('contract'))
+    copy2('tokens/' + x.get('id') + '.json', x.get('copydest') + 'tokens.js')
+    
